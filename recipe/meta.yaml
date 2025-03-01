@@ -1,17 +1,17 @@
 {% set name = "raspalib" %}
-{% set version = "v3.0.1" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/iRASPA/RASPA3/archive/{{ version }}.tar.gz
+  url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
   sha256: cfaf680615161b985261359410f0b59504efc392f4a1be54de7c48bc0b0d360a
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   build:
