@@ -22,8 +22,14 @@ hdf5:
 - 1.14.3
 libaec:
 - '1'
+libblas:
+- 3.9.* *netlib
 libcurl:
 - '8'
+liblapack:
+- 3.9.* *netlib
+llvm_openmp:
+- '18'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openssl:
