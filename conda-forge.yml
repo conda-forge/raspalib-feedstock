@@ -1,8 +1,5 @@
 build_platform:
   osx_arm64: osx_64
-provider:
-  linux_aarch64: emulated
-  linux_ppc64le: emulated
   win: azure
 test: native_and_emulated
 github:

@@ -3,7 +3,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:
   if [[ "${target_platform}" == linux-64 ]]; then
     cmake -B build --preset linux_conda_raspalib -DCMAKE_INSTALL_PREFIX=${PREFIX}
   elif [[ "${target_platform}" == linux-ppc64le ]]; then
-    cmake -B build --preset linux_conda_raspalib -DCMAKE_INSTALL_PREFIX=${PREFIX} 
+    cmake -B build --preset linux_conda_raspalib -DCMAKE_INSTALL_PREFIX=${PREFIX}
   elif [[ "${target_platform}" == linux-aarch64 ]]; then
     cmake -B build --preset linux_conda_raspalib -DCMAKE_INSTALL_PREFIX=${PREFIX}
   elif [[ "${target_platform}" == osx-* ]]; then
