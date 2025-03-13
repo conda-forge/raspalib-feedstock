@@ -1,5 +1,5 @@
 {% set name = "raspalib" %}
-{% set version = "3.0.2" %}
+{% set version = "3.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,9 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: 9cb460a8057f49abc387c13bc17e468db12df10f1a7620ef91fffc6ae324691a
+  sha256: 74c602dc14153248023ae1894d0980ed3890a6cc24535ed03559f21bd527f67d
 
 build:
-  skip: true  # [win]
   number: 0
 
 requirements:
@@ -18,32 +17,27 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - clang-tools
-    - llvm-tools
+    - clang-tools  # [unix]
+    - llvm-tools  # [unix]
     - cmake
     - ninja
     - lld
-    - libgomp  # [linux]
-    - llvm-openmp  # [osx]
-    - libcxx  # [win]
-    - libcxx-devel  # [not win]
+    - libcxx-devel  # [osx]
     - python  # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
-    - libcxx
-    - libcxxabi  # [linux]
-    - blas
-    - lapack
-    - libopenblas  # [linux]
+    - libcxx  # [osx]
+    - libgomp  # [linux]
+    - llvm-openmp  # [not linux]
+    - libblas
+    - liblapack
     - hdf5
     - zlib
-    - python
     - openssl
     - libcurl
     - libaec
+    - python
   run:
-    - libcxx
-    - libcxxabi  # [linux]
     - python
 
 test:
