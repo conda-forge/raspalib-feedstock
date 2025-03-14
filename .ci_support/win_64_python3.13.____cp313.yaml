@@ -1,23 +1,13 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
-MACOSX_SDK_VERSION:
-- '11.0'
 c_compiler:
-- clang
-c_compiler_version:
-- '19'
+- vs2022
 c_stdlib:
-- macosx_deployment_target
-c_stdlib_version:
-- '11.0'
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- clangxx
-cxx_compiler_version:
-- '19'
+- vs2022
 hdf5:
 - 1.14.3
 libaec:
@@ -28,10 +18,6 @@ libcurl:
 - '8'
 liblapack:
 - 3.9.* *netlib
-llvm_openmp:
-- '18'
-macos_machine:
-- arm64-apple-darwin20.0.0
 microarch_level:
 - '1'
 openssl:
@@ -43,9 +29,6 @@ pin_run_as_build:
 python:
 - 3.13.* *_cp313
 target_platform:
-- osx-arm64
-zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
+- win-64
 zlib:
 - '1'

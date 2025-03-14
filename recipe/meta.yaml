@@ -1,5 +1,6 @@
 {% set name = "raspalib" %}
-{% set version = "3.0.2" %}
+{% set version = "3.0.3" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
@@ -7,43 +8,41 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: 9cb460a8057f49abc387c13bc17e468db12df10f1a7620ef91fffc6ae324691a
+  sha256: f39ca0bedc3275b5b28b74763ec3f79a242a8ab046c327b00897b45e69cfa575
 
 build:
-  skip: true  # [win]
-  number: 0
+  # Prioritize builds with a higher microarch level.
+  number: {{ build }}          # [not (unix and x86_64)]
+  number: {{ build + 100 }}    # [unix and x86_64 and microarch_level == 1]
+  number: {{ build + 300 }}    # [unix and x86_64 and microarch_level == 3]
 
 requirements:
   build:
+    - x86_64-microarch-level {{ microarch_level }}  # [unix and x86_64]
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - clang-tools
-    - llvm-tools
+    - clang-tools  # [unix]
+    - llvm-tools  # [unix]
     - cmake
     - ninja
     - lld
-    - libgomp  # [linux]
-    - llvm-openmp  # [osx]
-    - libcxx  # [win]
-    - libcxx-devel  # [not win]
+    - libcxx-devel  # [osx]
     - python  # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
-    - libcxx
-    - libcxxabi  # [linux]
-    - blas
-    - lapack
-    - libopenblas  # [linux]
+    - libcxx  # [osx]
+    - libgomp  # [linux]
+    - llvm-openmp  # [not linux]
+    - libblas
+    - liblapack
     - hdf5
     - zlib
-    - python
     - openssl
     - libcurl
     - libaec
+    - python
   run:
-    - libcxx
-    - libcxxabi  # [linux]
     - python
 
 test:
