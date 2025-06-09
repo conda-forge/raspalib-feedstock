@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
+fftw:
+- '3'
 hdf5:
 - 1.14.3
 libaec:
