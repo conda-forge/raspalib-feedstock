@@ -23,7 +23,7 @@ liblapack:
 microarch_level:
 - '1'
 openssl:
-- '3'
+- '3.5'
 pin_run_as_build:
   python:
     min_pin: x.x
