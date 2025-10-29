@@ -1,13 +1,17 @@
 c_compiler:
+  - gcc  # [linux]
+  - clang  # [osx]
   - vs2022  # [win]
-  - clang  # [unix]
 c_compiler_version:  # [unix]
-  - 19  # [unix]
+  - '>=15.2.0'  # [linux]
+  - 19  # [osx]
 cxx_compiler:
+  - gxx  # [linux]
   - vs2022  # [win]
-  - clangxx  # [unix]
+  - clangxx  # [osx]
 cxx_compiler_version:  # [unix]
-  - 19  # [unix]
+  - '>=15.2.0'  # [linux]
+  - 19  # [osx]
 microarch_level:
   - 1
   - 3  # [unix and x86_64]
