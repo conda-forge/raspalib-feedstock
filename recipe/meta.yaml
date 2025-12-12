@@ -1,6 +1,6 @@
 {% set name = "raspalib" %}
 {% set version = "3.0.17" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -36,7 +36,7 @@ requirements:
     - llvm-openmp  # [not linux]
     - libblas
     - liblapack
-    - hdf5
+    - hdf5 >=1.14.3,<2.0a0
     - zlib
     - openssl
     - libcurl
