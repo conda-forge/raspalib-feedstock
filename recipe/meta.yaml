@@ -1,5 +1,5 @@
 {% set name = "raspalib" %}
-{% set version = "3.0.16" %}
+{% set version = "3.0.17" %}
 {% set build = 0 %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: 41f56370f65f8954c0bfb4393086183f43e655d18511a2401544960003857f75
+  sha256: df7162a19ab0d4c642272a604aba4f61ccf7993e75ed27a95c5103ecaaf321fe
 
 build:
   # Prioritize builds with a higher microarch level.
@@ -60,7 +60,7 @@ about:
   home: https://github.com/iraspa/raspa3
   summary: 'Python library for raspa3 (a classical simulation package)'
   description: |
-    RASPA is a software package for simulating adsorption and 
+    RASPA is a software package for simulating adsorption and
     diffusion of molecules in flexible nanoporous materials. 
     The code implements the latest state-of-the-art algorithms 
     for Molecular Dynamics and Monte Carlo in various ensembles 
