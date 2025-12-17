@@ -14,4 +14,4 @@ else
   fi
 fi
 
-ninja -C build install -v
+ninja -C build install -v -j1
