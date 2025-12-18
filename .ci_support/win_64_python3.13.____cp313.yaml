@@ -10,8 +10,6 @@ cxx_compiler:
 - vs2022
 fftw:
 - '3'
-hdf5:
-- 1.14.3
 libaec:
 - '1'
 libblas:
