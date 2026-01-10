@@ -1,6 +1,6 @@
 {% set name = "raspalib" %}
-{% set version = "3.0.18" %}
-{% set build = 1 %}
+{% set version = "3.0.19" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: ad2651ebf6514b8ffa1ebfde862401ca26f65d5bb7dc4edaf35bcf0d1a366243
+  sha256: 7555dfcf1a694bcc2e4560743404877ff87c80efad8a7c30d4f0ba98afb050c9
 
 build:
   # Prioritize builds with a higher microarch level.
@@ -65,7 +65,7 @@ about:
     The code implements the latest state-of-the-art algorithms 
     for Molecular Dynamics and Monte Carlo in various ensembles 
     including symplectic/measure-preserving integrators, Ewald 
-    summation, Configurational-Bias Monte Carlo, Continuous 
+    summation, Configurational-Bias Monte Carlo, Continuous  
     Fractional Component Monte Carlo, and Reactive Monte Carlo.
   license: MIT
   license_file: LICENSE.md
