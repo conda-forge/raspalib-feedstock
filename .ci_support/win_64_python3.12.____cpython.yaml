@@ -1,5 +1,3 @@
-c_compiler:
-- vs2022
 c_stdlib:
 - vs
 channel_sources:
@@ -10,8 +8,10 @@ cxx_compiler:
 - vs2022
 fftw:
 - '3'
+graphviz:
+- '14'
 hdf5:
-- 1.14.3
+- 1.14.6
 libaec:
 - '1'
 libblas:
