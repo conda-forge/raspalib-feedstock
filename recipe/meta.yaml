@@ -1,5 +1,5 @@
 {% set name = "raspalib" %}
-{% set version = "3.0.21" %}
+{% set version = "3.0.22" %}
 {% set build = 0 %}
 
 package:
@@ -8,7 +8,8 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: 36c81135a81b504f6f33a75e9e5af66819fbb3f421831ad36783a26b09b48c65
+  sha256: 12201096f9249135f7b997d86a32cf71b70bfa473c48be46a1870f04c9dbfcf1
+
 
 build:
   # Prioritize builds with a higher microarch level.
@@ -20,17 +21,19 @@ requirements:
   build:
     - x86_64-microarch-level {{ microarch_level }}  # [unix and x86_64]
     - {{ stdlib('c') }}
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - clang-tools  # [osx]
-    - llvm-tools  # [osx]
+    - clang-tools  # [unix]
+    - llvm-tools  # [unix]
+    - lld  # [unix]
     - libcxx-devel  # [osx]
-    - lld  # [osx]
     - cmake
     - ninja
-    - python  # [build_platform != target_platform]
+    - doxygen
+    - graphviz
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - python  # [build_platform != target_platform]
   host:
+    - python
     - libcxx  # [osx]
     - libgomp  # [linux]
     - llvm-openmp  # [not linux]
@@ -41,7 +44,6 @@ requirements:
     - openssl
     - libcurl
     - libaec
-    - python
     - libopencl-devel
     - ocl-icd  # [linux]
     - khronos-opencl-icd-loader  # [osx and win]
