@@ -1,6 +1,6 @@
 {% set name = "raspalib" %}
 {% set version = "3.0.27" %}
-{% set build = 3 %}
+{% set build = 4 %}
 
 package:
   name: {{ name|lower }}
