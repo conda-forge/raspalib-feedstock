@@ -14,4 +14,5 @@ else
   fi
 fi
 
+cmake --build build --config Release -v
 ninja -C build install -v
