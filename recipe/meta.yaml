@@ -8,17 +8,17 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v{{ version }}.tar.gz
-  sha256: b862f526147d6b5f2e6aedb5fbf48fffa3c903cbc589293e27f7cd4bcd70eb03
+  sha256: ae21bbb6b4f619c4a91edfa9d1a080783dbfa4fd8bbed7230d75655caf1d6a4a
 
 build:
   # Prioritize builds with a higher microarch level.
-  number: {{ build }}  # [not x86_64]
-  number: {{ build + 100 }}  # [x86_64 and microarch_level == 1]
-  number: {{ build + 300 }}  # [x86_64 and microarch_level == 3]
+  number: {{ build }}  # [not (unix and x86_64)]
+  number: {{ build + 100 }}  # [unix and x86_64 and microarch_level == 1]
+  number: {{ build + 300 }}  # [unix and x86_64 and microarch_level == 3]
 
 requirements:
   build:
-    - x86_64-microarch-level {{ microarch_level }}  # [x86_64]
+    - x86_64-microarch-level {{ microarch_level }}  # [unix and x86_64]
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - clang-tools  # [unix]
