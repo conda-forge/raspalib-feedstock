@@ -1,6 +1,6 @@
 {% set name = "raspalib" %}
 {% set version = "3.0.27" %}
-{% set build = 1 %}
+{% set build = 2 %}
 
 package:
   name: {{ name|lower }}
@@ -68,7 +68,7 @@ about:
     for Molecular Dynamics and Monte Carlo in various ensembles 
     including symplectic/measure-preserving integrators, Ewald 
     summation, Configurational-Bias Monte Carlo, Continuous  
-    Fractional Component Monte Carlo, and Reactive Monte Carlo. 
+    Fractional Component Monte Carlo, and Reactive Monte Carlo.
   license: MIT
   license_file: LICENSE.md
   doc_url: https://iraspa.github.io/RASPA3
