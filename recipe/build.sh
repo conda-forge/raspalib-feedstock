@@ -15,4 +15,4 @@ else
 fi
 
 cmake --build build --config Release -v
-ninja -C build install -v
+cmake --install build --config Release -v
