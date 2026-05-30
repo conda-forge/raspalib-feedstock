@@ -30,10 +30,6 @@ llvm_openmp:
 - '19'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-microarch_level:
-- '3'
-numpy:
-- '2'
 openssl:
 - '3.5'
 pin_run_as_build:
