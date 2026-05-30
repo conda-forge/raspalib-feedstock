@@ -3,7 +3,7 @@ c_compiler:
   - clang  # [osx]
   - vs2022  # [win]
 c_compiler_version:  # [unix]
-  - 19  # [linux]
+  - 22  # [linux]
   - 22  # [osx]
 c_stdlib:
   - sysroot                     # [linux]
@@ -14,5 +14,5 @@ cxx_compiler:
   - vs2022  # [win]
   - clangxx  # [osx]
 cxx_compiler_version:  # [unix]
-  - 19  # [linux]
+  - 22  # [linux]
   - 22  # [osx]

@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v${{ version }}.tar.gz
-  sha256: af68902aee8d618ca6522fe0fba0f3d8e09f30cad27c15748c3e093f58838f59
+  sha256: 7963d52f1bca6a337bb4356854c7852216ef11cdca391fc536c1a3da39d8e36d
 
 build:
   number: ${{ build }}
