@@ -1,0 +1,97 @@
+schema_version: 1
+
+context:
+  name: raspalib
+  version: "3.0.30"
+  build: 0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/iRASPA/RASPA3/archive/v${{ version }}.tar.gz
+  sha256: af68902aee8d618ca6522fe0fba0f3d8e09f30cad27c15748c3e093f58838f59
+
+build:
+  number: ${{ build }}
+  script:
+    - if: unix
+      then: [build.sh]
+    - if: win
+      then: [build.bat]
+
+requirements:
+  build:
+    - ${{ stdlib('c') }}
+    - ${{ compiler('cxx') }}
+    - if: unix
+      then: clang-tools
+    - if: unix
+      then: llvm-tools
+    - if: unix
+      then: lld
+    - if: osx
+      then: libcxx-devel
+    - cmake
+    - ninja
+    - doxygen
+    - graphviz
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: python
+  host:
+    - python
+    - if: osx
+      then: libcxx
+    - if: linux
+      then: libgomp
+    - if: not linux
+      then: llvm-openmp
+    - libblas
+    - liblapack
+    - zlib
+    - openssl
+    - libcurl
+    - libaec
+    - libopencl-devel
+    - if: linux
+      then: ocl-icd
+    - if: osx or win
+      then: khronos-opencl-icd-loader
+    - fftw
+  run:
+    - python
+    - if: linux
+      then: ocl-icd
+    - if: osx or win
+      then: khronos-opencl-icd-loader
+    - if: osx
+      then: ocl_icd_wrapper_apple
+
+
+tests:
+  - python:
+      imports:
+        - raspalib
+
+about:
+  summary: Python library for raspa3 (a classical simulation package)
+  description: |
+    RASPA is a software package for simulating adsorption and
+    diffusion of molecules in flexible nanoporous materials.
+    The code implements the latest state-of-the-art algorithms
+    for Molecular Dynamics and Monte Carlo in various ensembles
+    including symplectic/measure-preserving integrators, Ewald
+    summation, Configurational-Bias Monte Carlo, Continuous
+    Fractional Component Monte Carlo, and Reactive Monte Carlo.
+  license: MIT
+  license_file: LICENSE.md
+  homepage: https://github.com/iraspa/raspa3
+  repository: https://github.com/iraspa/raspa3
+  documentation: https://iraspa.github.io/RASPA3
+
+extra:
+  recipe-maintainers:
+    - dubbelda
