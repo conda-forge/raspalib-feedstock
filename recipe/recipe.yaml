@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: raspalib
-  version: "3.0.30"
+  version: "3.1.0"
   build: 0
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/iRASPA/RASPA3/archive/v${{ version }}.tar.gz
-  sha256: 7963d52f1bca6a337bb4356854c7852216ef11cdca391fc536c1a3da39d8e36d
+  sha256: d5a20254a3f90bddcff9661a0dc602e325e4b75d8cf4abd1990675daac660507
 
 build:
   number: ${{ build }}
