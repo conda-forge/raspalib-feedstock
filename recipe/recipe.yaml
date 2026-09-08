@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: raspalib
   version: "3.1.0"
-  build: 0
+  build: 1
 
 package:
   name: ${{ name|lower }}
@@ -26,11 +26,10 @@ requirements:
     - ${{ stdlib('c') }}
     - ${{ compiler('cxx') }}
     - if: unix
-      then: clang-tools
-    - if: unix
-      then: llvm-tools
-    - if: unix
-      then: lld
+      then:
+        - clang-tools
+        - llvm-tools
+        - lld
     - if: osx
       then: libcxx-devel
     - cmake
@@ -38,17 +37,16 @@ requirements:
     - doxygen
     - graphviz
     - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: python
+      then:
+        - cross-python_${{ target_platform }}
+        - python
   host:
     - python
     - if: osx
       then: libcxx
     - if: linux
       then: libgomp
-    - if: not linux
-      then: llvm-openmp
+      else: llvm-openmp
     - libblas
     - liblapack
     - zlib
